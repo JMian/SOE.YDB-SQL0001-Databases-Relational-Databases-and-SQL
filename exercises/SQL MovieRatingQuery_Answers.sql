@@ -1,3 +1,5 @@
+/*** Solution for SQL Movie-Rating Query Exercises & Extras ***/
+
 /*** SQL Movie-Rating Query Exercises - Solution ***/
 
 /* Q1. Find the titles of all movies directed by Steven Spielberg. */
