@@ -155,6 +155,7 @@ from Reviewer rv join Rating rt using(rID)
 group by rt.rID 
 having count(*) >= 3;
 
+/* solution option 2 */
 select distinct rv.name
 from Reviewer rv join Rating rt using(rID)
 where (select count(*) 
@@ -172,6 +173,7 @@ where director in
 			group by director having count(*) > 1)
 order by director, title;
 
+/* solution option 2 */
 select m1.title, m2.director
 from Movie m1 join Movie m2 using(director)
 where m1.mID <> m2.mID 
@@ -194,7 +196,8 @@ from Movie m
 where rt1.avgstars = (select max(avgstars) 
 						from (select mID, avg(stars) as avgstars 
 								from Rating group by mID));
-							
+
+/* solution option 2 */							
 select m.title, avg(stars) as avgstars
 from Movie m 
 	join Rating using(mID)
@@ -216,6 +219,7 @@ where rt1.avgstars = (select min(avgstars)
 						from (select mID, avg(stars) as avgstars 
 								from Rating group by mID));
 
+/* solution option 2 */
 select m.title, avg(stars) as avgstars
 from Movie m 
 	join Rating using(mID)
