@@ -11,6 +11,7 @@ where Friend.ID2 in (
 	from Highschooler 
 	where name = "Gabriel");
 	
+/* solution option 2 */
 select s2.name
 from Highschooler s1, Highschooler s2, Friend f 
 where s1.ID = f.ID1 and s1.name = "Gabriel" and s2.ID = f.ID2;
@@ -95,6 +96,7 @@ where s.ID not in (
 	from Highschooler s1, Highschooler s2, Friend f1 
 	where s1.ID = f1.ID1 and s2.ID = f1.ID2 and s1.grade = s2.grade);
 
+/* solution option 2 */
 select s1.name, s1.grade
 from Highschooler s1
 where s1.grade not in (
@@ -119,6 +121,7 @@ where s1.ID = f1.ID1 and s1.name = "Cassandra" and f1.ID2 = f2.ID1
 	and f2.ID2 in (select ID2 from Friend where ID1 = f1.ID2)
 	and f2.ID2 <> s1.ID;
 
+/* solution option 2 */
 select count(*)
 from Friend f2
 where f2.ID1 in (
@@ -140,6 +143,7 @@ where s.ID in (
 		select max(countfriend) from (
 			select count(*) as countfriend from Friend group by ID1)));
 
+/* solution option 2 */
 select s.name, s.grade
 from Highschooler s join Friend f1 on (s.ID = f1.ID1)
 group by f1.ID1
